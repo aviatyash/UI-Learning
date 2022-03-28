@@ -1,0 +1,95 @@
+<body>
+    <head>
+        <style>
+            body{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-image: url(kanha.jpg);
+            }
+            *{
+                box-sizing: border-box;
+            }
+           #imgbox{
+               max-width: 1000px;
+               position: relative;
+               margin: auto;
+           }
+           img{
+               vertical-align: middle;
+               height: 500px;
+               object-fit:contain ;
+           }
+           .images{
+               display: none;
+               color: rgb(0, 255, 0);
+               text-align: center;
+               font-weight: 1000;
+               font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+           }
+           h1{
+               text-align: center;
+               color: rgb(0, 255, 0);
+           }
+           .buttons{
+               position: absolute;
+               left: 450px;
+               border: none;
+               color: white;
+               display: inline-block;
+               text-align: center;
+               font-size: 16px;
+           }
+           
+        </style>
+    </head>
+    <h1>The Royal Bengal Tigers of India</h1>
+    <div id='imgbox'>
+        <div class="images">
+            <img src="1.jpg" style="width: 100%;">
+            <caption>Umarpani Male from Kanha</caption>
+        </div>
+        <div class="images">
+            <img src="2.jpg" style="width: 100%">
+            <caption>DB3 Male from kanha</caption>
+        </div>
+        <div class="images">
+            <img src="3.jpg" style="width: 100%">
+            <caption>Unknow from Jim Corbett</caption>
+        </div>
+        <div class="images">
+            <img src="4.jpg" style="width: 100%">
+            <caption>Raiykassa Male from Pench</caption>
+        </div>
+        <div class="images">
+            <img src="5.jpg" style="width: 100%">
+            <caption>Unknow Tigress From Tadoba</caption>
+        </div>
+        <div class="buttons">
+        <button id='nxtbtn' onclick="slidebtns(-1)">Left</button>
+        <button id='prebtn' onclick="slidebtns(1)">Right</button>
+        </div>
+    </div>
+    <script>
+        var slideNumber =1;
+        slidesdisplay(slideNumber);
+        function slidebtns(n){
+            slidesdisplay(slideNumber += n);
+        }
+        function currentslide(n){
+            slidesdisplay(slideNumber = n);
+        }
+        function slidesdisplay(n){
+            var i;
+            var slides=document.getElementsByClassName('images');
+            if(n>slides.length){
+                slideNumber=1
+            }
+            if(n<1){
+                slideNumber=slides.length
+            }
+            for(i=0;i<slides.length;i++){
+                slides[i].style.display='none';
+            }
+            slides[slideNumber-1].style.display='block';
+        }
+        </script>
+</body>

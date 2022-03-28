@@ -1,0 +1,15 @@
+<body>
+    <h1 id="heading">Hello this is heading 1</h1>
+    <h2>Hello this is heading 2</h2>
+    <button id="btn" onclick=changeHeading()>Change</button>
+    <script>
+        var a=document.getElementById('heading')
+        var b=document.getElementById('btn')
+        function changeHeading(){
+            a.innerHTML="Hello this is heading changed";
+            a.style.textAlign='left'
+            a.style.fontSize='100px'
+            a.style.fontFamily="Impact,Charcoal,sans-serif"
+        }
+    </script>
+</body>

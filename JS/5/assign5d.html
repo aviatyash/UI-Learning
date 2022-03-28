@@ -1,0 +1,32 @@
+<body>
+    <table border="2px" id="'table">
+        <tbody>
+            <tr id="tblrow">
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+            </tr>
+        </tbody>
+    </table>
+    <button id="btn">Add Coloumn</button>
+    <button id="btndelete">Delete</button>
+    <script>
+        var btnclick=document.getElementById('btn');
+        btnclick.addEventListener('click',addColoumn)
+       function addColoumn(){
+var a=document.getElementById('tblrow')
+var txtnode=document.createTextNode('State')
+var elmnt=document.createElement('th')
+elmnt.appendChild(txtnode)
+a.appendChild(elmnt)
+   }
+   function deleteColumn(){
+       var headings=document.getElementsByTagName('th')
+       var rows=document.getElementById('tblrow')
+       rows.removeChild(headings[headings.length-1])
+       console.log(headings.length-1)
+   }
+   var deletebutton=document.getElementById('btndelete');
+   deletebutton.addEventListener('click',deleteColumn)
+    </script>
+</body>

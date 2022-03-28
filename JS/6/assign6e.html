@@ -1,0 +1,18 @@
+<body>
+    <p id='para'></p>
+    <button id="btn">Size</button>
+    <script>
+        const myset= new Set()
+        myset.add('Avi');
+        myset.add('23');
+        myset.add('Ngp');
+        myset.add('MH');
+        var a=document.getElementById('para');
+        console.log(myset)
+        function alertSize(){
+            alert("The size of myset is "+ myset.size)
+        }
+        var b=document.getElementById('btn')
+        b.addEventListener('click',alertSize)
+        </script>
+        </body>

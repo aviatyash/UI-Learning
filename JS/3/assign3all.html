@@ -1,0 +1,71 @@
+<body>
+    <script>
+        var student={
+            name:'Arjun',
+            location:'Ngp',
+            empid:123
+        }
+        console.log(student)
+        delete student.empid;
+        console.log(student);
+//------------------------------------------------------------------------------------------------------------------
+
+        objectlength=Object.keys(student).length;
+        console.log(objectlength)
+        student.skills='UI';
+        console.log(student)
+//------------------------------------------------------------------------------------------------------------------
+
+        var fname=student.name;
+        var farray=fname.split('');
+        var subarray=[]
+        for(i=0;i<=farray.length;i++){
+            for(let j=i;j<=farray.length;j++){
+                if(i!=j){
+                    let substr=farray.slice(i,j).join('');
+                    subarray.push(substr);
+                }
+            }
+        }
+        console.log(subarray)
+
+//------------------------------------------------------------------------------------------------------------------
+
+        var samplestring='textvalue';
+        String.prototype.reverse=function(){
+            return this.split("").reverse().join("");
+        }
+        console.log(samplestring.reverse());
+
+        class Shape{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            }
+            area()
+            {
+                return this.x*this.y;
+            }
+        }
+
+//------------------------------------------------------------------------------------------------------------------
+
+        class Rectangle extends Shape{
+            constructor(length,breadth){
+                super(length,breadth)
+                this.length=length;
+                this.breadth=breadth
+            }
+        }
+        class Circle extends Shape{
+            constructor(side){
+                super(side,side)
+                this.side=side
+            }
+        }
+        let newrect=new Rectangle(10,15);
+        let newcir=new Circle(8);
+        console.log(newrect.area());
+        console.log(newcir.area());
+        </script>
+        </body>

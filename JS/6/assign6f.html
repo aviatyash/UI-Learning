@@ -1,0 +1,19 @@
+<body>
+    <p>is isFinite(1/100000) true?</p>
+    <p id="para"></p>
+    <button id='btn'>Ans</button>
+    <script>
+        function checkifTrue(){
+            var a=document.getElementById('para')
+            if(isFinite(1/100000)){
+                a.innerHTML='isFinite(1/100000) is true'
+            }
+            else{
+                a.innerHTML='isFinite(1/100000) is false'
+            }
+        }
+        var btn1=document.getElementById('btn');
+        btn1.addEventListener('click',checkifTrue)
+        
+        </script>
+        </body>

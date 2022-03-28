@@ -1,0 +1,58 @@
+<body>
+    <script>
+      
+      let name={
+            firstname:"john",
+            lastname:'doe'
+        }
+        function printfullname(dept,company){
+            console.log(this.firstname+" "+this.lastname+' from '+dept+", "+company)
+        }
+            Function.prototype.polyfill_bind=function(...args){
+                let context=this;
+                let params=args.slice(1);
+                return function(...args2){
+                    context.apply(args[0],[...params,...args2])
+                }
+            }
+            let companyname=printfullname.polyfill_bind(name,'UI dept')
+            companyname('Yash');
+            
+        //-----------------------------------------------------------------------------
+
+
+        var a=["a","b","c","d","e"]
+        Array.prototype.mymap=function(callbackfn){
+            var arr=[];
+            for(var i=0;i<this.length;i++){
+                arr.push(callbackfn(this[i],i,this));
+            }
+            return arr;
+        }
+        const letters=a.mymap(function(x){
+            return x;
+        })
+        console.log(letters)
+
+        //------------------------------------------------------------------------------
+
+        var a=["a","b","c","d","e"];
+        Array.prototype.myfind=function(callbackfn){
+            //var arr=[];
+            for(var i=0;i<this.length;i++){
+                if(a[i]=='b'){
+                    console.log('found')
+                    break;
+                }
+                else{
+                    console.log('')
+                }
+            }
+        }
+        const x=a.myfind(function(y){
+            return y;
+        })
+        console.log(x)
+
+        </script>
+        </body>

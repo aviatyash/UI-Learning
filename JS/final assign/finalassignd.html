@@ -1,0 +1,118 @@
+<body>
+    <head>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                background-color: blueviolet;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: white;
+            }
+            img{
+               vertical-align: middle;
+               width: 200px;
+               height: 200px;
+               object-fit:contain ;
+           }
+           #imgbox{
+               max-width: 1000px;
+               position: relative;
+               margin: auto;
+           }
+           h1,p,#btns{
+               text-align: center;
+           }
+           button{
+               border: none;
+               background-color: rgb(255, 153, 0);
+               color: white;
+           }
+           
+        </style>
+    </head>
+    <h1>Our Menu</h1>
+    <div id="btns">
+        <button onclick="allfood()">All</button>
+        <button onclick="breakfast()">Breakfast</button>
+        <button onclick="lunch()">Lunch</button>
+        <button onclick="shakes()">Shakes</button>
+        <button onclick="lunch()">Dinner</button>
+    </div>
+    <p>Food Display</p>
+    <div id="imgbox">
+        <div id="dosa">
+            <img src="dosa.jpeg" style="width: 100%">
+            <p>Dosa : $5</p>
+        </div>
+       <div id="idli">
+        <img src="idli.jpeg" style="width: 100%" >
+        <p>Idli : $5</p>
+       </div>
+       <div id="mtrpnr">
+        <img src="mpp.jpeg" style="width: 100%">
+        <p>Mutter Paneer : $10</p>
+       </div>
+       <div id="rice">
+        <img src="br.jfif" style="width: 100%">
+        <p>Rice : $5</p>
+       </div>
+       <div id="paratha">
+        <img src="paratha.jfif" style="width: 100%">
+        <p>Roti : $2</p>
+       </div>
+       <div  id="lassi">
+        <img src="ml.jfif" style="width: 100%" >
+        <p>Mango Lassi : $5</p>
+       </div>
+       <div id="shake">
+        <img src="cms.jfif" style="width: 100%">
+        <p>Choclate MilkShake : $5</p>
+       </div>
+    </div>
+    <script>
+        var dosaref=document.getElementById('dosa');
+        var idliref=document.getElementById('idli');
+        var paneerref=document.getElementById('mtrpnr');
+        var riceref=document.getElementById('rice');
+        var paratharef=document.getElementById('paratha');
+        var lassiref=document.getElementById('lassi');
+        var shakeref=document.getElementById('shake');
+        function allfood(){
+    dosaref.style.display='initial';
+          idliref.style.display='initial';
+           paneerref.style.display='initial';
+           riceref.style.display='initial';
+           paratharef.style.display='initial';
+           lassiref.style.display='initial';
+           shakeref.style.display='initial';
+}
+    function breakfast(){
+          dosaref.style.display='initial';
+          idliref.style.display='initial';
+           paneerref.style.display='none';
+           riceref.style.display='none';
+           paratharef.style.display='none';
+           lassiref.style.display='none';
+           shakeref.style.display='none';
+}
+function lunch(){
+    dosaref.style.display='none';
+          idliref.style.display='none';
+           paneerref.style.display='initial';
+           riceref.style.display='initial';
+           paratharef.style.display='initial';
+           lassiref.style.display='none';
+           shakeref.style.display='none';
+}
+function shakes(){
+    dosaref.style.display='none';
+          idliref.style.display='none';
+           paneerref.style.display='none';
+           riceref.style.display='none';
+           paratharef.style.display='none';
+           lassiref.style.display='initial';
+           shakeref.style.display='initial';
+}
+    </script>
+    <body>

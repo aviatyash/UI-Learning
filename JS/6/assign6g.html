@@ -1,0 +1,36 @@
+<body>
+    <p>is isNaN("Vijaya") true?</p>
+    <p id="para"></p>
+    <button id='btn'>Ans</button>
+    <p>is isNaN(10) true?</p>
+    <p id="para1"></p>
+    <button id='btn1'>Ans</button>
+
+    <script>
+        function checkifTrue(){
+            console.log(isNaN("Vijaya"))
+            var a=document.getElementById('para')
+            if(isNaN("Vijaya")){
+                a.innerHTML='isNaN("Vijaya") is true'
+            }
+            else{
+                a.innerHTML='isNaN("Vijaya") is false'
+            }
+        }
+        var btn1=document.getElementById('btn');
+        btn1.addEventListener('click',checkifTrue)
+        function checkifTrueTwo(){
+            var a=document.getElementById('para1')
+            if(isNaN(10)){
+                a.innerHTML='isNana(10) is true'
+            }
+            else{
+                a.innerHTML='isNaN(10) is false'
+            }
+        }
+        
+        var btn1=document.getElementById('btn1');
+        btn1.addEventListener('click',checkifTrueTwo)
+        
+        </script>
+        </body>

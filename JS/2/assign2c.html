@@ -1,0 +1,30 @@
+<body>
+    <p id="para1"></p>
+    <p id="para2"></p>
+    <p id="para3"></p>
+    <p id="para4"></p>
+    <script>
+        var a="my name is salman"
+        let pattern=/salman/i;
+        let result=a.match(pattern)
+        let paraa=document.getElementById('para1')
+        paraa.innerHTML=result;
+
+        var b="my age is 20 what is yours?";
+        let resultb=b.match('20')
+        let parab=document.getElementById('para2')
+        parab.innerHTML=resultb;
+
+
+        var c="my enployee id is En123 and i work at yash"
+        let resultc=c.match('En123')
+        let parac=document.getElementById('para3')
+        parac.innerHTML=resultc;
+
+
+        var d="Hiy you ari not robot"
+        const regex=/i/g;
+        let parad=document.getElementById('para4')
+        parad.innerHTML=d.replace(regex,'e');
+        </script>
+</body>

@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <p id="para">Function is not executed</p>
+        <button id="btn">Execute</button>
+        <script>
+            function myfunction(){
+                var b=document.getElementById('para');
+                b.innerHTML="Function is now executed"
+            }
+            var btn=document.getElementById('btn');
+            btn.addEventListener('click',myfunction)
+            </script>
+            </body>
+</html>

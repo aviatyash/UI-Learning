@@ -1,0 +1,15 @@
+<body>
+    <p id='para'></p>
+    <script>
+    const a=["Lions","Tigers","Dogs"];
+    function animal(){
+        var b=document.getElementById('para')
+        b.innerHTML="Animal Kingdom has "+a[0]+","+a[1]+" and "+a[2];
+    }
+    animal();
+    const x=function(a,b,c){
+        return "Animal Kingdom has "+a+","+b+" and "+c;
+    }
+    document.write(x('Lions','Tigers','Dogs'))
+    </script>
+    </body>

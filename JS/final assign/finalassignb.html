@@ -1,0 +1,218 @@
+<html>
+    <body>
+        <h1>Registration Form</h1>
+        <div id="form">
+        <form>
+            <label for="fname">First Name</label><br>
+            <input type="text" id="fname" name="'firstname" placeholder="John" onchange="fnamevalidate()"><br>
+            <label for="lname">last Name</label><br>
+            <input type="text" id="lname" name="'lastname" placeholder="Doe" onchange="lnamevalidate()"><br>
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label></br>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label></br>
+            <label for="'email">Email</label><br>
+            <input type="email" id="email" onchange="emailvalidate()"><br>
+            <label for="pass">Password</label><br>
+            <input type="password" id="pass" onchange="passwordvalidate()"><br>
+            <label for="passconfirm">Confirm Password</label><br>
+            <input type="password" id="passconfirm" onchange="confirmpassvalidate()"><br>
+            <input type="checkbox" id="terms">
+            <label for="terms">I agree that i have read all the terms and condtions</label><br>
+            <input type="submit" value="Submit" id="submitbtnid">
+        </form>
+        </div>
+        <table border="5px" id="table">
+            <tbody id="tbody">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+    var fnamergx = /^[a-zA-Z @ #. ]{3,30}$/;
+    var lnamergx = /^[a-zA-Z @ #. ]{3,30}$/;
+    var passwordrgx = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+    var emailrgx = /^[A-Za-z_.]{6,}@[A-Za-z]{4,}[.]{1}[A-Za-z.]{2,}$/;
+    var fnameref=document.getElementById('fname');
+    var lnameref=document.getElementById('lname');
+    var malegenderref=document.getElementById('male');
+    var femalegenderref=document.getElementById('female');
+    var emailref=document.getElementById('email');
+    var passwordref=document.getElementById('pass');
+    var confirmpassref=document.getElementById('passconfirm')
+    var tbodyref=document.getElementById('tbody');
+    var tableref=document.getElementById('table');
+    var formdivref=document.getElementById('form');
+    tableref.style.display='none';
+    var fnamestore=fnameref.value;
+    var lnamestore=lnameref.value;
+    var malegenderstore=malegenderref.value;
+    var femalegenderstore=femalegenderref.value;
+    var emailstore=emailref.value;
+    var passwordstore=passwordref.value;
+    
+    var lnametest=lnamergx.test(lnamestore);
+    var passwordtest=passwordrgx.test(lnamestore);
+    var emailtest=emailrgx.test(emailstore);
+
+   // var submitbtn=true;
+    function fnamevalidate(){
+        var fnamestore2=fnameref.value;
+        var fnametest=fnamergx.test(fnamestore2);
+        console.log(fnametest)
+        if(fnametest==false){
+            fnameref.style.borderColor='red';
+           // submitbtn=false;
+        }
+        else{
+            fnameref.style.borderColor='black';
+           // submitbtn=true;
+        }
+    }
+    function lnamevalidate(){
+        var lnamestore2=lnameref.value;
+        var lnametest=lnamergx.test(lnamestore2);
+        console.log(lnametest)
+        if(lnametest==false){
+            lnameref.style.borderColor='red';
+            //submitbtn=false;
+        }
+        else{
+            lnameref.style.borderColor='black';
+            //submitbtn=true;
+        }
+    }
+    function emailvalidate(){
+        var emailstore2=emailref.value;
+        var emailtest=emailrgx.test(emailstore2);
+        console.log(emailtest)
+        if(emailtest==false){
+            emailref.style.borderColor='red';
+           // submitbtn=false;
+        }
+        else{
+            emailref.style.borderColor='black';
+          //  submitbtn=true;
+        }
+    }
+    function passwordvalidate(){
+        var passstore2=passwordref.value;
+        var passtest=passwordrgx.test(passstore2);
+        console.log(passtest)
+        if(passtest==false){
+            passwordref.style.borderColor='red';
+          //  submitbtn=false;
+        }
+        else{
+            passwordref.style.borderColor='black';
+           // submitbtn=true;
+        }
+    }
+    function confirmpassvalidate(){
+        var confirmpassstore=confirmpassref.value;
+        var passstore3=passwordref.value;
+        console.log(confirmpassstore)
+        console.log(passstore3)
+        if(confirmpassstore==passstore3){
+            confirmpassref.style.borderColor='black';
+          //  submitbtn=true;
+           // console.log(submitbtn);
+        }
+        else{
+            confirmpassref.style.borderColor='red';
+          //  submitbtn=false;
+          //  console.log(submitbtn)
+        }
+    }
+
+    var submitbtnref=document.getElementById('submitbtnid');
+   // if(submitbtn==true){
+     //     submitbtnref.disabled=false;
+   // }
+  //  else if(submitbtn==false){
+     //   submitbtnref.disabled=true;
+   // }
+    
+    //fnameref.addEventListener("change",fnamevalidate())
+    function submitform(){
+        event.preventDefault();
+        tableref.style.display='initial';
+        formdivref.style.display='none';
+        var arr=[];
+        arr.push(fnameref.value);
+        arr.push(lnameref.value);
+        if(malegenderref.checked){
+            arr.push("Male")
+        }
+        else{
+            arr.push('Female')
+        }
+        arr.push(emailref.value);
+        arr.push(passwordref.value);
+        console.log(arr);
+        var tr=document.createElement('tr');
+        for(i=0;i<5;i++){
+            var td=document.createElement('td');
+            td.innerHTML=arr[i];
+            tr.appendChild(td)
+           // var tdappend=td.appendChild(txt);
+           // var trappend=tr.appendChild(tdappend);
+       }
+        console.log(tr)
+        tbodyref.appendChild(tr)
+    }
+       /* var fnamestore=fnameref.value;
+        var lnamestore=lnameref.value;
+        var malegenderstore=malegenderref.value;
+        var femalegenderstore=femalegenderref.value;
+        var emailstore=emailref.value;
+        var passwordstore=passwordref.value;
+        const fnametr=document.createElement('td');
+        console.log(fnametr)
+        const lnametr=document.createElement('td');
+        const malegendertr=document.createElement('td');
+        const femalegendertr=document.createElement('td');
+        const emailtr=document.createElement('td');
+        const passwordtr=document.createElement('td');
+        const fnamenode=document.createTextNode(fnamestore)
+        const lnamenode=document.createTextNode(lnamestore)
+        const malegendernode=document.createTextNode(malegenderstore)
+        const femalegendernode=document.createTextNode(malegenderstore)
+        const emailnode=document.createTextNode(emailstore)
+        const passwordnode=document.createTextNode(passwordstore);
+        var a=fnametr.appendChild(fnamenode)
+        console.log(a)
+        var b=lnametr.appendChild(lnamenode);
+        console.log(b)
+        var c=malegendertr.appendChild(malegendernode);
+        console.log(c)
+        var d=femalegendertr.appendChild(femalegendernode);
+        console.log(d)
+        var e=emailtr.appendChild(emailnode);
+        console.log(e)
+        var f=passwordtr.appendChild(passwordnode);
+        console.log(f)
+
+        var newtr=document.createElement("tr")
+        newtr.appendChild(a)
+        newtr.appendChild(b)
+        newtr.appendChild(c)
+        newtr.appendChild(d)
+        newtr.appendChild(e)
+        newtr.appendChild(f)
+ console.log(newtr)
+        var tbodyref=document.getElementById('tbody');
+        tbodyref.appendChild(newtr);    
+    }*/
+   // var btnref=document.getElementById('submitbtn');
+    submitbtnref.addEventListener('click',submitform);
+
+    </script>
+    </body>
+</html>

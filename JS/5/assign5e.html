@@ -1,0 +1,56 @@
+<body>
+    <div id='bigsqr'>
+        <div id="smallsqr1"></div>
+        <div id="smallsqr2"></div>
+        <button id="btn1" onclick=start()>Start</button>
+        <button id="btn2" onclick=stop()>Stop</button>
+    </div>
+    <style>
+        #bigsqr{
+            width:1000px;
+            height: 500px;
+            position: relative;
+            background: yellow;
+        }
+        #smallsqr1{
+            width:150px;
+            height:150px;
+            background: white;
+            position: absolute;
+            top: 150px;
+        }
+        #smallsqr2{
+            width:150px;
+            height:150px;
+            background: black;
+            position: absolute;
+            right: 0px;
+            top: 150px;
+        }
+        </style>
+        <script>
+            var sqrOne=document.getElementById('smallsqr1');
+                var sqrTwo=document.getElementById('smallsqr2');
+                let pos1=0;
+                let pos2=0;
+            function start(){
+                var int=setInterval(frame,5)
+                function frame(){
+                    if(pos1==850 || pos2==1000){
+                        clearInterval(int);
+                    }else{
+                        pos1++;
+                        console.log(pos1)
+                        pos2++;
+                        console.log(pos2)
+                        sqrTwo.style.right=pos2+"px";
+                        sqrOne.style.left=pos1+"px";
+                    }
+                }
+            }
+            function stop(){
+                
+            }
+          
+           
+        </script>
